@@ -70,6 +70,7 @@ app.get("/api/students", (req, res) => {
 
 app.post("/api/students", (req, res) => {
 
+  const id = req.body.id;
   const studentId = req.body.student_id;
 
   const fullName = req.body.full_name;
@@ -82,7 +83,7 @@ app.post("/api/students", (req, res) => {
 
   const contact = req.body.contact_number;
 
-  if (!studentId || !fullName || !course || !yearLevel || !email || !contact) {
+  if (!id || !studentId || !fullName || !course || !yearLevel || !email || !contact) {
 
     return res.status(400).json({ msg: "All fields are required" });
 
@@ -90,9 +91,9 @@ app.post("/api/students", (req, res) => {
 
   pool.query(
 
-    "INSERT INTO students (student_id, full_name, course, year_level, email, contact_number) VALUES (?, ?, ?, ?, ?, ?)",
+    "INSERT INTO students (id, student_id, full_name, course, year_level, email, contact_number) VALUES (?, ?, ?, ?, ?, ?)",
 
-    [studentId, fullName, course, yearLevel, email, contact],
+    [id,studentId, fullName, course, yearLevel, email, contact],
 
     (err, rows, fields) => {
 
@@ -176,9 +177,9 @@ app.put("/api/students", (req, res) => {
 
   pool.query(
 
-    "UPDATE students SET student_id = ?, full_name = ?, course = ?, year_level = ?, email = ?, contact_number = ? WHERE id = ?",
+    "UPDATE students SET id = ?, student_id = ?, full_name = ?, course = ?, year_level = ?, email = ?, contact_number = ? WHERE id = ?",
 
-    [studentId, fullName, course, yearLevel, email, contact, id],
+    [id,studentId, fullName, course, yearLevel, email, contact, id],
 
     (err, rows, fields) => {
 
