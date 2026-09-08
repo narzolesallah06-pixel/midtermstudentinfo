@@ -70,7 +70,7 @@ app.get("/api/students", (req, res) => {
 
 app.post("/api/students", (req, res) => {
 
-  const id = req.body.id;
+ 
   const studentId = req.body.student_id;
 
   const fullName = req.body.full_name;
