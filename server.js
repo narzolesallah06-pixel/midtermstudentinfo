@@ -18,11 +18,11 @@ const pool = mysql.createPool({
 
   host: "sql.freedb.tech",
 
-  user: "u_I5fquj",
+  user: "u_X2HJNI",
 
-  password: "YPEdiBGSQpl4",
+  password: "GWK9xIp8XiDv",
 
-  database: "freedb_Cmx3muqi",
+  database: "freedb_ub4NlB8a",
 
   connectionLimit: 10,
 
